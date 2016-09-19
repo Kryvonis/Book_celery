@@ -118,6 +118,7 @@ class BookGenerator:
             "Lol"))
             loger.info("end pdf creation")
 
+
     def __merger_page_pdf(self):
         """
         use to merge all pdf pages in one book
