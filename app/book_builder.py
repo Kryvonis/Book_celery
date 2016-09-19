@@ -71,8 +71,8 @@ class BookGenerator:
         eye_color = self.__book_config.a_eye
         skin_color = self.__book_config.a_skin
 
-    @celery_app.task()
-    def paster_in_svg(self, src, elem, ):
+
+    def paster_in_svg(self, src, elem):
         """
         get all requirements and insert in one page in svg.
         photos paste using url
@@ -106,7 +106,7 @@ class BookGenerator:
         """
         pass
 
-    @celery_app.task()
+
     def generate_page_pdf(self, src, out, options=None):
         """
         use generated pdf to create one page in pdf format.

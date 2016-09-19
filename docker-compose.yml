@@ -5,15 +5,13 @@ services:
     ports:
       - "49300:6379"
   test-books-img:
-    build: ./src
+    build: ./
     command: python /app/run.py
     ports:
       - "49400:5000"
-    depends_on:
-      - elastic
   celery:
     image: celery
-    build: ./src
+    build: ./
     environment:
       - C_FORCE_ROOT=true
       - DATABASE_HOST=redis
@@ -23,4 +21,4 @@ services:
     volumes:
       - .:/app
     depends_on:
-- redis
+      - redis
