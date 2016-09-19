@@ -5,7 +5,7 @@ try:
 except ImportError:
     print("Failed to import ElementTree from any known place")
 import pdfkit, os
-from app import loger
+from app import loger, celery_app
 
 
 class BookGenerator:
@@ -71,6 +71,7 @@ class BookGenerator:
         eye_color = self.__book_config.a_eye
         skin_color = self.__book_config.a_skin
 
+    @celery_app.task()
     def paster_in_svg(self, src, elem, ):
         """
         get all requirements and insert in one page in svg.
@@ -105,6 +106,7 @@ class BookGenerator:
         """
         pass
 
+    @celery_app.task()
     def generate_page_pdf(self, src, out, options=None):
         """
         use generated pdf to create one page in pdf format.
