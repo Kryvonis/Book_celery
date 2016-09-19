@@ -1,0 +1,56 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:Start create svg
+ERROR:app:Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/app/views/view.py", line 14, in test_hello
+    "/home/kryvonis/PycharmProjects/CeleryTask/app/templates/book_builder/svg_template/2.svg")
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/celery/local.py", line 188, in __call__
+    return self._get_current_object()(*a, **kw)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/celery/app/task.py", line 420, in __call__
+    return self.run(*args, **kwargs)
+TypeError: paster_in_svg() missing 1 required positional argument: 'elem'
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2016 14:07:35] "GET / HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:Start create svg
+ERROR:app:Exception on / [GET]
+Traceback (most recent call last):
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/app/views/view.py", line 13, in test_hello
+    bg.paster_in_svg("app/templates/book_builder/svg_template/2.svg", "/home/kryvonis/PycharmProjects/CeleryTask/app/templates/book_builder/svg_template/2.svg")
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/celery/local.py", line 188, in __call__
+    return self._get_current_object()(*a, **kw)
+  File "/home/kryvonis/PycharmProjects/CeleryTask/env/lib/python3.5/site-packages/celery/app/task.py", line 420, in __call__
+    return self.run(*args, **kwargs)
+TypeError: paster_in_svg() missing 1 required positional argument: 'elem'
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2016 14:08:13] "GET / HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:Start create svg
+INFO:root:start svg pasting
+INFO:root:svg created - OK
+INFO:root:start pdf creation
+INFO:root:end pdf creation
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2016 14:08:33] "GET / HTTP/1.1" 200 -
