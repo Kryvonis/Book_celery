@@ -1,6 +1,9 @@
 from flask import Flask, Blueprint
-from app.views import view
 from celery import Celery
+import logging as loger
+from app.views import view
+
+loger.basicConfig(filename='main.log', level=loger.DEBUG)
 
 app = Flask(__name__)
 
