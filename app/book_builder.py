@@ -6,6 +6,7 @@ except ImportError:
     print("Failed to import ElementTree from any known place")
 import pdfkit, os
 from app import loger, celery_app
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
 class BookGenerator:
@@ -71,7 +72,6 @@ class BookGenerator:
         eye_color = self.__book_config.a_eye
         skin_color = self.__book_config.a_skin
 
-
     def paster_in_svg(self, src, elem):
         """
         get all requirements and insert in one page in svg.
@@ -106,7 +106,6 @@ class BookGenerator:
         """
         pass
 
-
     def generate_page_pdf(self, src, out, options=None):
         """
         use generated pdf to create one page in pdf format.
@@ -118,11 +117,31 @@ class BookGenerator:
             "Lol"))
             loger.info("end pdf creation")
 
-
-    def __merger_page_pdf(self):
+    def merger_page_pdf(self, input_pdf, output_pdf):
         """
         use to merge all pdf pages in one book
         delete all files after merging. not sure about deleting
         :return: url for generated file in pdf
         """
-        pass
+        output = PdfFileWriter()
+        # Appending two pdf-pages from two different files
+        _input_pdf = PdfFileReader(open(input_pdf, "rb"))
+        for i in range(30):
+            page = _input_pdf.getPage(0)
+            artbox = page.artBox
+            x = artbox[0]
+            y = artbox[1]
+            y = artbox[2]
+            y = artbox[3]
+            output.addPage(page)
+        # output.addPage(_input_pdf.getPage(0))
+        # output.addPage(_input_pdf.getPage(0))
+
+        # Writing all the collected pages to a file
+        output.write(open(output_pdf, "wb"))
+
+
+        # Creating a routine that appends files to the output file
+
+
+        # Creating an object where pdf pages are appended to
